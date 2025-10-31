@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# ⚙️ CPU Scheduling & Page Replacement Simulator (React + Firebase)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A **web-based Operating Systems simulator** built using **React.js** and **Firebase** that helps visualize and understand **CPU Scheduling Algorithms** and **Page Replacement Algorithms** interactively.
 
-## Available Scripts
+It calculates and displays **Waiting Time**, **Turnaround Time**, **Completion Time**, **Gantt Chart**, **Page Faults**, and **Fault Rates** — all in an intuitive and responsive interface.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🧠 CPU Scheduling Algorithms
+- **FCFS (First Come First Serve)**
+  - Non-preemptive scheduling
+  - Processes are executed in the order they arrive
+  - Calculates:
+    - Waiting Time (WT)
+    - Turnaround Time (TAT)
+    - Completion Time (CT)
+    - Average WT and TAT
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **SJF (Shortest Job First)**
+  - Non-preemptive algorithm
+  - Process with the shortest burst time is executed next
+  - Reduces average waiting time
 
-### `npm test`
+- **Priority Scheduling**
+  - Non-preemptive scheduling based on process priority
+  - Lower priority number = higher priority
+  - Calculates same metrics as above
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Round Robin (RR)**
+  - Preemptive scheduling
+  - Each process is given a fixed time quantum
+  - Context switching simulated
+  - Calculates:
+    - Completion Time
+    - Waiting Time
+    - Turnaround Time
+    - Average WT & TAT
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🧩 Page Replacement Algorithms
+- **FIFO (First In First Out)**
+  - Oldest page in memory is replaced first
+  - Displays step-by-step frame state changes
+  - Shows total page faults and fault rate
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **LRU (Least Recently Used)**
+  - Page not used for the longest time is replaced
+  - Simulates stack-based page replacement
+  - Shows total page faults and fault rate
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📊 Output Metrics
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Metric | Description |
+|--------|-------------|
+| **CT (Completion Time)** | Time when a process finishes execution |
+| **TAT (Turnaround Time)** | `CT - Arrival Time` |
+| **WT (Waiting Time)** | `TAT - Burst Time` |
+| **Average TAT & WT** | Mean of all processes |
+| **Page Faults** | Number of times a page had to be loaded into memory |
+| **Fault Rate (%)** | `(Page Faults / Total Pages) × 100` |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🛠️ Tech Stack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Layer | Technology |
+|--------|-------------|
+| Frontend | React.js |
+| Styling | Tailwind CSS |
+| State Management | React Context API |
+| Backend | Firebase Firestore |
+| Auth | Firebase Authentication |
+| Deployment | Firebase Hosting |
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧩 Project Modules
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🔹 CPU Scheduler (`/pages/CPUScheduler.jsx`)
+Handles all CPU scheduling algorithms with table output and Gantt chart visualization.
 
-### Code Splitting
+### 🔹 Page Replacement (`/pages/PageReplacement.jsx`)
+Simulates FIFO and LRU algorithms with frame visualization and page fault stats.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 🔹 Firebase Setup (`/firebase.js`)
+Manages Firestore database and authentication.
 
-### Analyzing the Bundle Size
+### 🔹 Context (`/context/AuthContext.jsx`)
+Provides user authentication context across all pages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
